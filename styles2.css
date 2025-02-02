@@ -1,0 +1,252 @@
+/* Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Navegación superior */
+.top-nav {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.nav-logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-logo:hover {
+    color: #ffcc00;
+}
+
+/* Contenedor principal */
+.content-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.content-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modules-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.module {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.module:hover {
+    transform: scale(1.02);
+}
+
+.module h2 {
+    color: #ffcc00;
+}
+
+.module-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.theory-section, .practical-section, .exercise-section {
+    flex: 1 1 300px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 10px;
+    border-radius: 8px;
+}
+
+h3 {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+.exercise-box {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.exercise-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background: #ffcc00;
+    color: #222;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.exercise-btn:hover {
+    background: #e6b800;
+}
+
+.solution {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.footer-subtitle {
+    font-size: 0.9em;
+    color: #ffcc00;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .module-content {
+        flex-direction: column;
+    }
+
+    .theory-section, .practical-section, .exercise-section {
+        flex: 1 1 auto;
+    }
+}
+
+
+/* Estilos para la sección de comentarios */
+.comments-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Arial', sans-serif;
+}
+
+h5 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Estilos del formulario */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    resize: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos de la lista de comentarios */
+#comments-list {
+    margin-top: 20px;
+}
+
+.comment-item {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #4CAF50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comment-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Efectos de transición */
+textarea,
+button {
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+

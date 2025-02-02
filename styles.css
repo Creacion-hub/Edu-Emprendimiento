@@ -1,0 +1,354 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    background-color: rgb(249, 250, 251);
+    color: #333;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+/* Hero Section with Parallax */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transform: scale(1.1);
+    z-index: 0;
+    transition: transform 0.5s ease-out;
+}
+
+.hero:hover::before {
+    transform: scale(1.15);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(37,99,235,0.7) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    max-width: 36rem;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Features Section with Hover Effects */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: -100px auto 5rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 3;
+    max-width: 1280px;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(37,99,235,0.2);
+}
+
+.icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.feature-card p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* Education Section with Card Flip Effect */
+.education {
+    margin-bottom: 5rem;
+    padding: 0 2rem;
+}
+
+.education h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1f2937;
+    position: relative;
+}
+
+.education h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: #2563eb;
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    perspective: 1000px;
+}
+
+.education-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.education-card:hover {
+    transform: rotateY(10deg);
+}
+
+.education-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #2563eb;
+}
+
+.education-card ul {
+    list-style: none;
+    color: #6b7280;
+}
+
+.education-card li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.education-card li::before {
+    content: '•';
+    color: #2563eb;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Call to Action with Gradient Animation */
+.cta {
+    background: linear-gradient(-45deg, #2563eb, #1d4ed8, #3b82f6, #60a5fa);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    margin: 0 2rem 3rem;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.cta .icon {
+    width: 5rem;
+    height: 5rem;
+    color: white;
+    margin-bottom: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.cta p {
+    max-width: 36rem;
+    margin: 0 auto 2rem;
+    font-size: 1.2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: white;
+    color: #2563eb;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background: #f3f4f6;
+}
+
+/* Footer with Modern Design */
+footer {
+    background: linear-gradient(to right, #1f2937, #111827);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #2563eb, #3b82f6);
+}
+
+.footer-subtitle {
+    color: #9ca3af;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .features {
+        margin-top: -50px;
+    }
+    
+    .feature-card,
+    .education-card {
+        transform: none !important;
+    }
+    
+    .cta {
+        margin: 0 1rem 3rem;
+        padding: 3rem 1.5rem;
+    }
+    
+    .cta h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2563eb;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+}
+
+
+
+
